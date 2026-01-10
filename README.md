@@ -27,10 +27,12 @@ My goal is to understand myself and help others understand the mathematics and l
 │   └── salary_data.csv
 ├── notebooks
 │   ├── binary-classification.ipynb
-│   └── linear-regression.ipynb
+│   ├── linear-regression.ipynb
+│   └── logistic-regression.ipynb
 ├── src
 │   ├── __init__.py
 │   ├── linear_regressor.py
+│   ├── logistic_regressor.py
 │   └── perceptron.py
 ├── .gitignore
 ├── README.md
