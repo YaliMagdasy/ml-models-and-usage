@@ -23,6 +23,7 @@ My goal is to understand myself and help others understand the mathematics and l
 
 ```
 ├── datasets
+│   ├── floods.csv
 │   ├── iris_species.csv
 │   └── salary_data.csv
 ├── notebooks
@@ -35,6 +36,7 @@ My goal is to understand myself and help others understand the mathematics and l
 │   ├── logistic_regressor.py
 │   └── perceptron.py
 ├── .gitignore
+├── LICENSE
 ├── README.md
 └── requirements.txt
 ```
