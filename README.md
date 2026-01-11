@@ -49,7 +49,7 @@ if you want to install and experiment for any reason
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/JustSmiley/ml-models-and-usage.git
+   git clone https://github.com/YaliMagdasy/ml-models-and-usage.git
    ```
 
 2. **Install dependencies**:
