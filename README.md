@@ -49,8 +49,7 @@ if you want to install and experiment for any reason
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/JustSmiley/machine-learning.git
-   cd numpy-linear-regressor
+   git clone https://github.com/JustSmiley/ml-models-and-usage.git
    ```
 
 2. **Install dependencies**:
