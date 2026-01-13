@@ -4,14 +4,14 @@ class Perceptron:
     def __init__(self):
         self.weights = None
 
-    # add bias
+    # Adding bias
     def __extend_input(self, X): 
         Xext = np.ones((X.shape[0], X.shape[1] + 1))
         Xext[:, :-1] = X
         return Xext
 
-    # training the model
-    def fit(self, X, y, learning_rate=0.01, n_epochs=10, show_progress=False):
+    # Training the model using Gradient Descent
+    def fit(self, X, y, learning_rate: float=0.1, n_epochs: int=100, show_progress: bool=False):
         Xext = self.__extend_input(X)
         n_samples, n_features = Xext.shape
         
@@ -35,12 +35,12 @@ class Perceptron:
             accuracy = (n_samples - n_errors) / n_samples
             accuracy_history.append(accuracy)
 
-            if show_progress:
+            if show_progress and epoch % max(1, n_epochs // 10) == 0:
                 print(f"Epoch {epoch + 1}/{n_epochs} - Accuracy: {accuracy:.4f}")
 
         return accuracy_history
     
-    # predicting
+    # Predicting
     def predict(self, X):
         Xext = self.__extend_input(X)
         z = np.dot(Xext, self.weights)
