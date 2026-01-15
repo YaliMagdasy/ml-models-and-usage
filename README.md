@@ -23,15 +23,21 @@ My goal is to understand myself and help others understand the mathematics and l
 
 ```
 ├── datasets
+│   ├── diabetes.csv
 │   ├── floods.csv
 │   ├── iris_species.csv
-│   └── salary_data.csv
+│   ├── salaries.csv
+│   └── wines.csv
 ├── notebooks
 │   ├── binary-classification.ipynb
+│   ├── knn-classification.ipynb
+│   ├── knn-regression.ipynb
 │   ├── linear-regression.ipynb
 │   └── logistic-regression.ipynb
 ├── src
 │   ├── __init__.py
+│   ├── knn_classifier.py
+│   ├── knn_regressor.py
 │   ├── linear_regressor.py
 │   ├── logistic_regressor.py
 │   └── perceptron.py
