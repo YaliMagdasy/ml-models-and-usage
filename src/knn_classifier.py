@@ -12,7 +12,7 @@ class KNNClassifier:
         for x_pred in X:
             distances = np.linalg.norm(self.X_train - x_pred, axis=1)
             
-            k_indices = np.argpartition(distances, k)
+            k_indices = np.argpartition(distances, k)[:k]
             
             k_nearest_labels = self.y_train[k_indices]
             
