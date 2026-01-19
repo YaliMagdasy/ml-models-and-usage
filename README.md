@@ -30,12 +30,14 @@ My goal is to understand myself and help others understand the mathematics and l
 │   └── wines.csv
 ├── notebooks
 │   ├── binary-classification.ipynb
+│   ├── k_means_clustering.ipynb
 │   ├── knn-classification.ipynb
 │   ├── knn-regression.ipynb
 │   ├── linear-regression.ipynb
 │   └── logistic-regression.ipynb
 ├── src
 │   ├── __init__.py
+│   ├── k_means.py
 │   ├── knn_classifier.py
 │   ├── knn_regressor.py
 │   ├── linear_regressor.py
