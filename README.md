@@ -26,23 +26,33 @@ My goal is to understand myself and help others understand the mathematics and l
 │   ├── diabetes.csv
 │   ├── floods.csv
 │   ├── iris_species.csv
+│   ├── mall_customers.csv
 │   ├── salaries.csv
 │   └── wines.csv
 ├── notebooks
-│   ├── binary-classification.ipynb
-│   ├── k_means_clustering.ipynb
-│   ├── knn-classification.ipynb
-│   ├── knn-regression.ipynb
-│   ├── linear-regression.ipynb
-│   └── logistic-regression.ipynb
+│   ├── classification
+│   │   ├── knn.ipynb
+│   │   └── perceptron.ipynb
+│   ├── clustering
+│   │   └── k-means.ipynb
+│   └── regression
+│       ├── knn.ipynb
+│       ├── linear.ipynb
+│       └── logistic.ipynb
 ├── src
 │   ├── __init__.py
-│   ├── k_means.py
-│   ├── knn_classifier.py
-│   ├── knn_regressor.py
-│   ├── linear_regressor.py
-│   ├── logistic_regressor.py
-│   └── perceptron.py
+│   ├── classification
+│   │   ├── __init__.py
+│   │   ├── knn.py
+│   │   └── perceptron.py
+│   ├── clustering
+│   │   ├── __init__.py
+│   │   └── k_means.py
+│   └── regression
+│       ├── __init__.py
+│       ├── knn.py
+│       ├── linear.py
+│       └── logistic.py
 ├── .gitignore
 ├── LICENSE
 ├── README.md
