@@ -15,7 +15,7 @@ def train_test_split(X, y, test_size=0.2, random_state=None):
     return X[train_idxs], X[test_idxs], y[train_idxs], y[test_idxs]
 
 def calculate_accuracy(y_true, y_pred):
-    return np.sum(y_true == y_pred) / len(y_true)
+    return np.mean(y_true == y_pred)
 
 def calculate_precision(y_true, y_pred):
     classes = np.unique(y_true)
