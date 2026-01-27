@@ -31,11 +31,13 @@ My goal is to understand myself and help others understand the mathematics and l
 │   └── wines.csv
 ├── notebooks
 │   ├── classification
+│       ├── descision_tree.ipynb
 │   │   ├── knn.ipynb
 │   │   └── perceptron.ipynb
 │   ├── clustering
 │   │   └── k-means.ipynb
 │   └── regression
+│       ├── descision_tree.ipynb
 │       ├── knn.ipynb
 │       ├── linear.ipynb
 │       └── logistic.ipynb
@@ -43,6 +45,7 @@ My goal is to understand myself and help others understand the mathematics and l
 │   ├── __init__.py
 │   ├── classification
 │   │   ├── __init__.py
+│       ├── descision_tree.py
 │   │   ├── knn.py
 │   │   └── perceptron.py
 │   ├── clustering
@@ -50,6 +53,7 @@ My goal is to understand myself and help others understand the mathematics and l
 │   │   └── k_means.py
 │   └── regression
 │       ├── __init__.py
+│       ├── descision_tree.py
 │       ├── knn.py
 │       ├── linear.py
 │       └── logistic.py
