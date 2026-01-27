@@ -45,18 +45,22 @@ My goal is to understand myself and help others understand the mathematics and l
 │   ├── __init__.py
 │   ├── classification
 │   │   ├── __init__.py
-│       ├── descision_tree.py
+│   │   ├── descision_tree.py
 │   │   ├── knn.py
 │   │   └── perceptron.py
 │   ├── clustering
 │   │   ├── __init__.py
 │   │   └── k_means.py
-│   └── regression
+│   ├── regression
+│   │   ├── __init__.py
+│   │   ├── descision_tree.py
+│   │   ├── knn.py
+│   │   ├── linear.py
+│   │   └── logistic.py
+│   └── shared
 │       ├── __init__.py
-│       ├── descision_tree.py
-│       ├── knn.py
-│       ├── linear.py
-│       └── logistic.py
+│       ├── data_manager.py
+│       └── utils.py
 ├── .gitignore
 ├── LICENSE
 ├── README.md
