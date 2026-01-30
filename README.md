@@ -22,49 +22,51 @@ My goal is to understand myself and help others understand the mathematics and l
 ## 📂 Directory Structure
 
 ```
-├── datasets
+├── .gitignore
+├── LICENSE
+├── README.md
+├── requirements.txt
+├── datasets/
 │   ├── diabetes.csv
 │   ├── floods.csv
 │   ├── iris_species.csv
 │   ├── mall_customers.csv
 │   ├── salaries.csv
 │   └── wines.csv
-├── notebooks
-│   ├── classification
-│       ├── descision_tree.ipynb
+├── notebooks/
+│   ├── README.md
+│   ├── classification/
+│   │   ├── decision_tree.ipynb
 │   │   ├── knn.ipynb
 │   │   └── perceptron.ipynb
-│   ├── clustering
+│   ├── clustering/
 │   │   └── k-means.ipynb
-│   └── regression
-│       ├── descision_tree.ipynb
+│   └── regression/
+│       ├── decision_tree.ipynb
 │       ├── knn.ipynb
 │       ├── linear.ipynb
 │       └── logistic.ipynb
-├── src
-│   ├── __init__.py
-│   ├── classification
-│   │   ├── __init__.py
-│   │   ├── descision_tree.py
-│   │   ├── knn.py
-│   │   └── perceptron.py
-│   ├── clustering
-│   │   ├── __init__.py
-│   │   └── k_means.py
-│   ├── regression
-│   │   ├── __init__.py
-│   │   ├── descision_tree.py
-│   │   ├── knn.py
-│   │   ├── linear.py
-│   │   └── logistic.py
-│   └── shared
-│       ├── __init__.py
-│       ├── data_manager.py
-│       └── utils.py
-├── .gitignore
-├── LICENSE
-├── README.md
-└── requirements.txt
+└── src/
+    ├── README.md
+    ├── __init__.py
+    ├── classification/
+    │   ├── __init__.py
+    │   ├── decision_tree.py
+    │   ├── knn.py
+    │   └── perceptron.py
+    ├── clustering/
+    │   ├── __init__.py
+    │   └── k_means.py
+    ├── regression/
+    │   ├── __init__.py
+    │   ├── decision_tree.py
+    │   ├── knn.py
+    │   ├── linear.py
+    │   └── logistic.py
+    └── shared/
+        ├── __init__.py
+        ├── data_manager.py
+        └── utils.py
 ```
 
 
