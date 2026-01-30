@@ -1,13 +1,20 @@
 import pandas as pd
 from pathlib import Path
 
-def __get_path(filename):
-    return Path(__file__).parent.parent.parent/'datasets'/(filename+'.csv')
+DATASETS_DIR = Path(__file__).parents[2] / 'datasets'
 
-def load_dataset(dataset_name):
+def load_dataset(dataset_name: str) -> pd.DataFrame:
     name = dataset_name.lower().strip()
+    file_path = DATASETS_DIR / f"{name}.csv"
 
     try:
-        return pd.read_csv(__get_path(name))
+        return pd.read_csv(file_path)
+
     except FileNotFoundError:
-        raise ValueError(f"Dataset '{dataset_name}' not found.")
+        
+        all_files = [f.stem for f in DATASETS_DIR.glob('*.csv')]
+        
+        similar = [f for f in all_files if name in f or f in name]
+        suggestions = similar if similar else all_files
+
+        raise FileNotFoundError(f"Dataset '{name}' not found. Did you mean: {suggestions}?")
