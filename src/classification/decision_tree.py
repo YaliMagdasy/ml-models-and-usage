@@ -104,7 +104,6 @@ class DecisionTreeClassifier:
         if node is None:
             return
 
-        # Node styling
         if node.is_leaf_node():
             text = f"{node.value}"
             bbox = dict(boxstyle="circle,pad=0.3", fc="lightgreen", ec="black")
@@ -112,21 +111,16 @@ class DecisionTreeClassifier:
             text = f"X[{node.feature}]\n<= {node.threshold:.2f}"
             bbox = dict(boxstyle="round,pad=0.3", fc="lightblue", ec="black")
 
-        # Draw text
         ax.text(x, y, text, ha="center", va="center", bbox=bbox, fontsize=10, zorder=10)
 
-        # Stop if leaf
         if node.is_leaf_node():
             return
 
-        # Calculate children coordinates
         left_x, left_y = x - dx/2, y - dy
         right_x, right_y = x + dx/2, y - dy
 
-        # Draw connecting lines
         ax.plot([x, left_x], [y, left_y], "k-", lw=1, zorder=1)
         ax.plot([x, right_x], [y, right_y], "k-", lw=1, zorder=1)
 
-        # Recursive calls
         self._plot_node(node.left, left_x, left_y, dx/2, dy, ax)
         self._plot_node(node.right, right_x, right_y, dx/2, dy, ax)
