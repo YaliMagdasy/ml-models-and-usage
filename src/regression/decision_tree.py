@@ -90,35 +90,58 @@ class DecisionTreeRegressor:
             return self.__traverse_tree(x, node.left)
         return self.__traverse_tree(x, node.right)
     
+    
     def print_tree(self, figsize=(12, 8)):
-        import matplotlib.pyplot as plt
-        
-        fig, ax = plt.subplots(figsize=figsize)
-        ax.axis("off")
-        self._plot_node(self.root, 0.5, 1, 0.5, 0.1, ax)
-        plt.show()
+            import matplotlib.pyplot as plt
 
-    def _plot_node(self, node, x, y, dx, dy, ax):
+            def get_depth(node):
+                if not node: return 0
+                if node.is_leaf_node(): return 1
+                return max(get_depth(node.left), get_depth(node.right)) + 1
+
+            def get_width(node):
+                if not node: return 0
+                if node.is_leaf_node(): return 1
+                return get_width(node.left) + get_width(node.right)
+
+            depth = get_depth(self.root)
+            width = get_width(self.root)
+
+            dynamic_width = max(figsize[0], width * 0.8)
+            dynamic_height = max(figsize[1], depth * 1.0)
+
+            fig, ax = plt.subplots(figsize=(dynamic_width, dynamic_height))
+            ax.axis("off")
+            
+            self.leaf_count = 0
+            self._plot_node(self.root, depth, 0, ax)
+            plt.show()
+
+    def _plot_node(self, node, total_depth, current_depth, ax):
         if node is None:
-            return
+            return None
 
+        left_x = self._plot_node(node.left, total_depth, current_depth + 1, ax)
+        right_x = self._plot_node(node.right, total_depth, current_depth + 1, ax)
+
+        y = total_depth - current_depth
+        
         if node.is_leaf_node():
+            x = self.leaf_count
+            self.leaf_count += 1
+            
             text = f"{node.value}"
             bbox = dict(boxstyle="circle,pad=0.3", fc="lightgreen", ec="black")
         else:
+            x = (left_x + right_x) / 2.0
             text = f"X[{node.feature}]\n<= {node.threshold:.2f}"
             bbox = dict(boxstyle="round,pad=0.3", fc="lightblue", ec="black")
 
         ax.text(x, y, text, ha="center", va="center", bbox=bbox, fontsize=10, zorder=10)
 
-        if node.is_leaf_node():
-            return
+        if node.left:
+            ax.plot([x, left_x], [y, y - 1], "k-", lw=1, zorder=1)
+        if node.right:
+            ax.plot([x, right_x], [y, y - 1], "k-", lw=1, zorder=1)
 
-        left_x, left_y = x - dx/2, y - dy
-        right_x, right_y = x + dx/2, y - dy
-
-        ax.plot([x, left_x], [y, left_y], "k-", lw=1, zorder=1)
-        ax.plot([x, right_x], [y, right_y], "k-", lw=1, zorder=1)
-
-        self._plot_node(node.left, left_x, left_y, dx/2, dy, ax)
-        self._plot_node(node.right, right_x, right_y, dx/2, dy, ax)
+        return x
