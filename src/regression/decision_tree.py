@@ -90,7 +90,7 @@ class DecisionTreeRegressor:
             return self.__traverse_tree(x, node.left)
         return self.__traverse_tree(x, node.right)
     
-    
+
     def print_tree(self, figsize=(12, 8)):
             import matplotlib.pyplot as plt
 
@@ -115,6 +115,7 @@ class DecisionTreeRegressor:
             
             self.leaf_count = 0
             self._plot_node(self.root, depth, 0, ax)
+            plt.tight_layout()
             plt.show()
 
     def _plot_node(self, node, total_depth, current_depth, ax):
@@ -130,7 +131,11 @@ class DecisionTreeRegressor:
             x = self.leaf_count
             self.leaf_count += 1
             
-            text = f"{node.value}"
+            if isinstance(node.value, (int, str)):
+                 text = f"{node.value}"
+            else:
+                 text = f"{node.value:.2f}"
+
             bbox = dict(boxstyle="circle,pad=0.3", fc="lightgreen", ec="black")
         else:
             x = (left_x + right_x) / 2.0
