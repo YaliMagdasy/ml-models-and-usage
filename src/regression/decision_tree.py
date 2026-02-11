@@ -1,6 +1,6 @@
 import numpy as np
 
-class __Node:
+class _Node:
     def __init__(self, feature=None, threshold=None, left=None, right=None, *, value=None):
         self.feature = feature
         self.threshold = threshold
@@ -28,7 +28,7 @@ class DecisionTreeRegressor:
 
         if (depth >= self.max_depth or n_labels == 1 or n_samples < self.min_samples_split):
             leaf_value = self.__calculate_leaf_value(y)
-            return __Node(value=leaf_value)
+            return _Node(value=leaf_value)
 
         feat_idxs = np.random.choice(n_feats, self.n_features, replace=False)
         best_feat, best_thresh = self.__best_split(X, y, feat_idxs)
@@ -36,7 +36,7 @@ class DecisionTreeRegressor:
         left_idxs, right_idxs = self.__split(X[:, best_feat], best_thresh)
         left = self.__build_tree(X[left_idxs, :], y[left_idxs], depth + 1)
         right = self.__build_tree(X[right_idxs, :], y[right_idxs], depth + 1)
-        return __Node(best_feat, best_thresh, left, right)
+        return _Node(best_feat, best_thresh, left, right)
 
     def __best_split(self, X, y, feat_idxs):
         best_gain = -1
