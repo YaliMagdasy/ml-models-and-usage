@@ -39,14 +39,16 @@ My goal is to understand myself and help others understand the mathematics and l
 │   ├── classification/
 │   │   ├── decision_tree.ipynb
 │   │   ├── knn.ipynb
-│   │   └── perceptron.ipynb
+│   │   ├── perceptron.ipynb
+│   │   └── random_forest.ipynb
 │   ├── clustering/
 │   │   └── k-means.ipynb
 │   └── regression/
 │       ├── decision_tree.ipynb
 │       ├── knn.ipynb
 │       ├── linear.ipynb
-│       └── logistic.ipynb
+│       ├── logistic.ipynb
+│       └── random_forest.ipynb
 └── src/
     ├── README.md
     ├── __init__.py
@@ -54,7 +56,8 @@ My goal is to understand myself and help others understand the mathematics and l
     │   ├── __init__.py
     │   ├── decision_tree.py
     │   ├── knn.py
-    │   └── perceptron.py
+    │   ├── perceptron.py
+    │   └── randonm_forest.py
     ├── clustering/
     │   ├── __init__.py
     │   └── k_means.py
@@ -63,7 +66,8 @@ My goal is to understand myself and help others understand the mathematics and l
     │   ├── decision_tree.py
     │   ├── knn.py
     │   ├── linear.py
-    │   └── logistic.py
+    │   ├── logistic.py
+    │   └── random_forest.py
     └── shared/
         ├── __init__.py
         ├── data_manager.py
