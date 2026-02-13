@@ -19,7 +19,12 @@ class DecisionTreeClassifier:
         self.root = None
 
     def fit(self, X, y):
-        self.n_features = X.shape[1] if not self.n_features else min(X.shape[1], self.n_features)
+        n_available_features = X.shape[1]
+        if self.n_features is None:
+            self.n_features = n_available_features
+        else:
+            self.n_features = min(n_available_features, self.n_features)
+            
         self.root = self.__build_tree(X, y)
 
     def __build_tree(self, X, y, depth=0):
@@ -32,6 +37,9 @@ class DecisionTreeClassifier:
 
         feat_idxs = np.random.choice(n_feats, self.n_features, replace=False)
         best_feat, best_thresh = self.__best_split(X, y, feat_idxs)
+
+        if best_feat is None:
+            return _Node(value=self.__most_common_label(y))
 
         left_idxs, right_idxs = self.__split(X[:, best_feat], best_thresh)
         left = self.__build_tree(X[left_idxs, :], y[left_idxs], depth + 1)
@@ -91,32 +99,32 @@ class DecisionTreeClassifier:
         if x[node.feature] <= node.threshold:
             return self.__traverse_tree(x, node.left)
         return self.__traverse_tree(x, node.right)
-    
+
     def print_tree(self, figsize=(12, 8)):
-            import matplotlib.pyplot as plt
+        import matplotlib.pyplot as plt
 
-            def get_depth(node):
-                if not node: return 0
-                if node.is_leaf_node(): return 1
-                return max(get_depth(node.left), get_depth(node.right)) + 1
+        def get_depth(node):
+            if not node: return 0
+            if node.is_leaf_node(): return 1
+            return max(get_depth(node.left), get_depth(node.right)) + 1
 
-            def get_width(node):
-                if not node: return 0
-                if node.is_leaf_node(): return 1
-                return get_width(node.left) + get_width(node.right)
+        def get_width(node):
+            if not node: return 0
+            if node.is_leaf_node(): return 1
+            return get_width(node.left) + get_width(node.right)
 
-            depth = get_depth(self.root)
-            width = get_width(self.root)
+        depth = get_depth(self.root)
+        width = get_width(self.root)
 
-            dynamic_width = max(figsize[0], width * 0.8)
-            dynamic_height = max(figsize[1], depth * 1.0)
+        dynamic_width = max(figsize[0], width * 0.8)
+        dynamic_height = max(figsize[1], depth * 1.0)
 
-            fig, ax = plt.subplots(figsize=(dynamic_width, dynamic_height))
-            ax.axis("off")
-            
-            self.leaf_count = 0
-            self._plot_node(self.root, depth, 0, ax)
-            plt.show()
+        fig, ax = plt.subplots(figsize=(dynamic_width, dynamic_height))
+        ax.axis("off")
+        
+        self.leaf_count = 0
+        self._plot_node(self.root, depth, 0, ax)
+        plt.show()
 
     def _plot_node(self, node, total_depth, current_depth, ax):
         if node is None:
