@@ -1,4 +1,4 @@
-# 🧠 NumPy ML Core: From Scratch
+# 🧠 ML Core: From Scratch
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
@@ -7,7 +7,7 @@
 ![Matplotlib](https://img.shields.io/badge/Library-Matplotlib-orange)
 
 
-A personal project aimed at learning and showcasing the core concepts of Machine Learning by building algorithms from scratch using NumPy, and showcasing their usage. 
+A personal project aimed at learning and showcasing the core concepts of Machine Learning by building algorithms from scratch using NumPy, and showcasing their usage using Pandas and Matplotlib. 
 
 My goal is to understand myself and help others understand the mathematics and logic behind these algorithms deeply, rather than just using high level frameworks. This repository serves as a documented learning project, from basic models to more complex ones.
 
