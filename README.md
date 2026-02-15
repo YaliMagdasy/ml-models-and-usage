@@ -15,8 +15,8 @@ My goal is to understand myself and help others understand the mathematics and l
 
 -   **Showcase of Work**: Demonstrating a fundamental understanding of ML algorithms.
 -   **Educational**: Code is written to be readable and instructive, helping others understand the mechanics under the hood.
--   **From Scratch**: No black box libraries like Scikit-Learn or TensorFlow for the core logic.
--   **Progressive Learning**: Starting with simple models (Linear Regression, Perceptron) and evolving to more advanced topics.
+-   **From Scratch**: No black box libraries like Scikit-Learn, PyTorch or TensorFlow for the core logic.
+-   **Progressive Learning**: A lot of models are implemented, from basic to more complex.
 -   **Interactive Demos**: Jupyter notebooks provided for each model to visualize performance and straightforward usage.
 
 ## 📂 Directory Structure
@@ -73,7 +73,6 @@ My goal is to understand myself and help others understand the mathematics and l
         ├── data_manager.py
         └── utils.py
 ```
-
 
 
 ## 🛠️ Installation
