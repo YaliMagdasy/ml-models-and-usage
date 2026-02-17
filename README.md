@@ -30,8 +30,10 @@ My goal is to understand myself and help others understand the mathematics and l
 │   ├── concrete_data.csv
 │   ├── diabetes.csv
 │   ├── floods.csv
+│   ├── forest_cover.csv
 │   ├── iris_species.csv
 │   ├── mall_customers.csv
+│   ├── moons.csv
 │   ├── salaries.csv
 │   └── wines.csv
 ├── notebooks/
