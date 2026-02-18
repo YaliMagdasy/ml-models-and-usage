@@ -18,3 +18,8 @@ def load_dataset(dataset_name: str) -> pd.DataFrame:
         suggestions = similar if similar else all_files
 
         raise FileNotFoundError(f"Dataset '{name}' not found. Did you mean: {suggestions}?")
+    
+
+def clean_column_names(df: pd.DataFrame) -> pd.DataFrame:
+    df.columns = [col.strip().lower().replace(' ', '_').replace('.', '_') for col in df.columns]
+    return df
