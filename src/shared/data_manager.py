@@ -25,12 +25,12 @@ def clean_column_names(df: pd.DataFrame) -> pd.DataFrame:
     for col in df.columns:
         res = ""
         for i, char in enumerate(col.strip()):
-            if i > 0 and char.isupper() and not col[i-1].isupper() and col[i-1] != '_':
+            if i > 0 and char.isupper() and not col[i-1].isupper() and col[i-1] != '_' and col[i-1] != '-':
                 res += "_" + char.lower()
             else:
                 res += char.lower()
         
-        clean_name = res.replace(' ', '_').replace('.', '_').replace('__', '_')
+        clean_name = res.replace(' ', '_').replace('.', '_').replace('-', '_').replace('__', '_')
         new_columns.append(clean_name)
         
     df.columns = new_columns
