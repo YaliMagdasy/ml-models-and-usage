@@ -21,5 +21,17 @@ def load_dataset(dataset_name: str) -> pd.DataFrame:
     
 
 def clean_column_names(df: pd.DataFrame) -> pd.DataFrame:
-    df.columns = [col.strip().lower().replace(' ', '_').replace('.', '_') for col in df.columns]
+    new_columns = []
+    for col in df.columns:
+        res = ""
+        for i, char in enumerate(col.strip()):
+            if i > 0 and char.isupper() and not col[i-1].isupper() and col[i-1] != '_':
+                res += "_" + char.lower()
+            else:
+                res += char.lower()
+        
+        clean_name = res.replace(' ', '_').replace('.', '_').replace('__', '_')
+        new_columns.append(clean_name)
+        
+    df.columns = new_columns
     return df
