@@ -35,6 +35,7 @@ My goal is to understand myself and help others understand the mathematics and l
 │   ├── mall_customers.csv
 │   ├── moons.csv
 │   ├── salaries.csv
+│   ├── sine_wave.csv
 │   └── wines.csv
 ├── notebooks/
 │   ├── README.md
